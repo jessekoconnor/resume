@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.8.4"
   },
   "dependencies": {
     "material-ui": "^0.16.5",
@@ -18,3 +18,5 @@
     "eject": "react-scripts eject"
   }
 }
+
+
