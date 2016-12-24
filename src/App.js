@@ -13,13 +13,16 @@ class AppHeader extends Component {
                 <title>Resume Site</title>
             </head>
             <body>
-                <h1>Jesse O'Connor</h1>
+                <h1>Whats up C-SCHWAB!!</h1>
             </body>
         </div>
         <p className="App-intro">
-            Code quality and and a cool culture is my dream company.
-            Yes.
+            Check out my new resume site im working on! I just got it public facing!!
         </p>
+          <img
+              src="https://s-media-cache-ak0.pinimg.com/originals/ce/f1/73/cef173f99e514a78eae54418c2086f40.jpg"
+              className="cow"
+          />
       </div>
     );
   }
