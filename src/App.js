@@ -22,7 +22,7 @@ class AppHeader extends Component {
           <h1>Hope your having a merry christmas!!!!</h1>
           <h2>(and are laughing and drinking with your family!!) </h2>
           <h3>Heres a great meme. Why? Just because. </h3>
-          <img
+          <img style={{width: "100%"}}
               src="http://www.ldssmile.com/wp-content/uploads/2013/11/5_4217171.jpg"
           />
       </div>
