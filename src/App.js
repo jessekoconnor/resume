@@ -13,7 +13,7 @@ class AppHeader extends Component {
                 <title>Resume Site</title>
             </head>
             <body>
-                <h1>Whats up VICTORIA!!</h1>
+                <h1></h1>
                 <img style={{height: "80px"}}
                     src="http://45.media.tumblr.com/a631c73aedc13c5a40c76d033b2361ba/tumblr_nxx72tylTt1ukx2eco1_1280.gif"
                 />
