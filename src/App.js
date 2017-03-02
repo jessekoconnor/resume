@@ -1,33 +1,48 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import AppBar from 'material-ui/AppBar';
 
+const styles = {
+    card: {
+        width: '80%'
+    }
+};
 
+const CardExampleWithAvatar = () => (
+    <div>
+        <AppBar title="Resume Site"/>
 
-class AppHeader extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-            <head>
-                <title>Resume Site</title>
-            </head>
-            <body>
-                <h1></h1>
-                <img style={{height: "80px"}}
-                    src="http://45.media.tumblr.com/a631c73aedc13c5a40c76d033b2361ba/tumblr_nxx72tylTt1ukx2eco1_1280.gif"
-                />
-            </body>
-        </div>
-          <h1>Hope your having a merry christmas!!!!</h1>
-          <h2>(and are laughing and drinking with your family!!) </h2>
-          <h3>Heres a great meme. Why? Just because. </h3>
-          <img
-              src="http://www.ldssmile.com/wp-content/uploads/2013/11/5_4217171.jpg"
-          />
-      </div>
-    );
-  }
-}
+        <Card
+            style={{
+                width: '70%',
+                margin: '0 auto',
+                border: '2px'
+            }}>
+            <CardHeader
+                title="Jesse O'Connor"
+                subtitle="Engineer II"
+                avatar="https://i.stack.imgur.com/kdrpp.png"
+            />
+            <CardMedia
+                overlay={<CardTitle title="Experience" subtitle=""/>}
+            >
+                <img src="http://www.copperstateengineering.com/wp-content/uploads/2016/01/engineering-blueprint.jpg"/>
+            </CardMedia>
+            <CardTitle title="Software Engineer2, Meltwater" subtitle="Manchester, NH: 2014 to Present"/>
+            <CardText>
+                Member of agile engineering team dedicated to a SAAS media monitoring solution
+            </CardText>
+            <CardTitle title="Developer, UNH InterOperability Laboratory" subtitle="Durham, NH: 2009 to 2013"/>
+            <CardText>
+                Developer and Test Technician of networking and data communication testing services.
+            </CardText>
+            <CardActions>
+                <FlatButton label="Click for projects from meltwater" onClick={() => console.log('click1')}/>
+                <FlatButton label="Click for projects from IOL" onClick={() => console.log('click2')}/>
+            </CardActions>
+        </Card>
+    </div>
+);
 
-export default AppHeader;
+export default CardExampleWithAvatar;
