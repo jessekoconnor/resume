@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import bigData from './Content';
 
 const styles = {
-    experience: {
+    resumeSection: {
         width: '90%',
         margin: '10px auto 10px auto',
         border: '2px',
@@ -15,55 +15,55 @@ const CardExampleWithAvatar = () => (
     <div>
         <AppBar title="Resume Site"/>
 
-        <Experience content={bigData.experience}/>
+        <ResumeSection content={bigData.experience}/>
     </div>
 );
 
-function Experience(props) {
+function ResumeSection(props) {
     return (
-        <Card style={styles.experience}>
+        <Card style={styles.resumeSection}>
             {/*<CardHeader title={props.content.header.title}/>*/}
 
             <Overlay overlay={props.content.overlay}/>
 
-            <CompanyExperiences companies={props.content.companies}/>
+            <SubCards subCards={props.content.subCards}/>
         </Card>);
 }
 
-function CompanyExperiences(props) {
+function SubCards(props) {
     let items = [];
-    for (let i = 0; i < props.companies.length; i++) {
+    for (let i = 0; i < props.subCards.length; i++) {
         items.push(
-            <CompanyExperience key={i} company={props.companies[i]}/>
+            <SubCard key={i} subCard={props.subCards[i]}/>
         );
     }
     return <div>{items}</div>;
 }
 
-function CompanyExperience(props) {
+function SubCard(props) {
     return (
         <Card >
             <CardTitle
-                title={props.company.title}
-                subtitle={props.company.subTitle}
+                title={props.subCard.title}
+                subtitle={props.subCard.subTitle}
                 actAsExpander
                 showExpandableButton
             />
 
             <CardText expandable={true}>
-                {props.company.paragraph}
-                <CompanyDetails details={props.company.details}/>
+                {props.subCard.paragraph}
+                <Bullets details={props.subCard.details}/>
             </CardText>
 
         </Card>
     );
 }
 
-function CompanyDetails(props) {
+function Bullets(props) {
     let items = [];
-    for (let i = 0; i < props.details.length; i++) {
-        let detail = props.details[i];
-        items.push(<li key={detail}>{detail}</li>);
+    for (let i = 0; i < props.bullets.length; i++) {
+        let bullet = props.bullets[i];
+        items.push(<li key={bullet}>{bullet}</li>);
     }
     return <ul>{items}</ul>;
 }
