@@ -52,7 +52,7 @@ function SubCard(props) {
 
             <CardText expandable={true}>
                 {props.subCard.paragraph}
-                <Bullets details={props.subCard.details}/>
+                <Bullets bullets={props.subCard.bullets}/>
             </CardText>
 
         </Card>
