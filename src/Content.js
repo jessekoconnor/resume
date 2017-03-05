@@ -3,7 +3,6 @@ module.exports = {
         // header: {
         //     title: 'Experience',
         // },
-        title: 'Software Engineer II',
 
         overlay: {
             title: 'Experience',
@@ -34,5 +33,33 @@ module.exports = {
                 ],
             }
         ],
-    }
+    },
+    education: {
+        // header: {
+        //     title: 'Experience',
+        // },
+
+        overlay: {
+            title: 'Education',
+            imageURL: 'http://i.huffpost.com/gen/1774503/images/o-UNIVERSITY-OF-NEW-HAMPSHIRE-CAMPUS-facebook.jpg',
+        },
+
+        subCards: [
+            {
+                title: 'BS in Computer Science',
+                subTitle: 'University of New Hampshire (2009 to 2013)',
+                paragraph: 'Bachelors of Science in Computer Science. Relevant courses:',
+                bullets: [
+                    'Artificial Intelligence',
+                    'Algorithms',
+                    'Data Structures',
+                    'Computer Networks',
+                    'Graphics',
+                    'Assembly Language & Machine Organization',
+                    'Operating System Fundamentals',
+                    'Programming Language Concepts and Feature',
+                ]
+            },
+        ],
+    },
 };

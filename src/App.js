@@ -16,6 +16,7 @@ const CardExampleWithAvatar = () => (
         <AppBar title="Resume Site"/>
 
         <ResumeSection content={bigData.experience}/>
+        <ResumeSection content={bigData.education}/>
     </div>
 );
 
