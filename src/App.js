@@ -1,11 +1,13 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardMedia, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
+import bigData from './Content';
 
 const styles = {
-    card: {
-        width: '80%'
+    experience: {
+        width: '90%',
+        margin: '10px auto 10px auto',
+        border: '2px',
     }
 };
 
@@ -13,36 +15,65 @@ const CardExampleWithAvatar = () => (
     <div>
         <AppBar title="Resume Site"/>
 
-        <Card
-            style={{
-                width: '70%',
-                margin: '0 auto',
-                border: '2px'
-            }}>
-            <CardHeader
-                title="Jesse O'Connor"
-                subtitle="Engineer II"
-                avatar="https://i.stack.imgur.com/kdrpp.png"
-            />
-            <CardMedia
-                overlay={<CardTitle title="Experience" subtitle=""/>}
-            >
-                <img src="http://www.copperstateengineering.com/wp-content/uploads/2016/01/engineering-blueprint.jpg"/>
-            </CardMedia>
-            <CardTitle title="Software Engineer2, Meltwater" subtitle="Manchester, NH: 2014 to Present"/>
-            <CardText>
-                Member of agile engineering team dedicated to a SAAS media monitoring solution
-            </CardText>
-            <CardTitle title="Developer, UNH InterOperability Laboratory" subtitle="Durham, NH: 2009 to 2013"/>
-            <CardText>
-                Developer and Test Technician of networking and data communication testing services.
-            </CardText>
-            <CardActions>
-                <FlatButton label="Click for projects from meltwater" onClick={() => console.log('click1')}/>
-                <FlatButton label="Click for projects from IOL" onClick={() => console.log('click2')}/>
-            </CardActions>
-        </Card>
+        <Experience content={bigData.experience}/>
     </div>
 );
+
+function Experience(props) {
+    return (
+        <Card style={styles.experience}>
+            {/*<CardHeader title={props.content.header.title}/>*/}
+
+            <Overlay overlay={props.content.overlay}/>
+
+            <CompanyExperiences companies={props.content.companies}/>
+        </Card>);
+}
+
+function CompanyExperiences(props) {
+    let items = [];
+    for (let i = 0; i < props.companies.length; i++) {
+        items.push(
+            <CompanyExperience key={i} company={props.companies[i]}/>
+        );
+    }
+    return <div>{items}</div>;
+}
+
+function CompanyExperience(props) {
+    return (
+        <Card >
+            <CardTitle
+                title={props.company.title}
+                subtitle={props.company.subTitle}
+                actAsExpander
+                showExpandableButton
+            />
+
+            <CardText expandable={true}>
+                {props.company.paragraph}
+                <CompanyDetails details={props.company.details}/>
+            </CardText>
+
+        </Card>
+    );
+}
+
+function CompanyDetails(props) {
+    let items = [];
+    for (let i = 0; i < props.details.length; i++) {
+        let detail = props.details[i];
+        items.push(<li key={detail}>{detail}</li>);
+    }
+    return <ul>{items}</ul>;
+}
+
+function Overlay(props) {
+    return (
+        <CardMedia overlay={<CardTitle title={props.overlay.title}/>}>
+            <img src={props.overlay.imageURL}/>
+        </CardMedia>
+    );
+}
 
 export default CardExampleWithAvatar;
