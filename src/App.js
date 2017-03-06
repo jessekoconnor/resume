@@ -1,7 +1,7 @@
 import React from 'react';
-import {Card, CardMedia, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
-import bigData from './Content';
+import resumeContent from './Content';
 
 const styles = {
     resumeSection: {
@@ -15,11 +15,13 @@ const CardExampleWithAvatar = () => (
     <div>
         <AppBar title="Resume Site"/>
 
-        <ResumeSection content={bigData.experience}/>
-        <ResumeSection content={bigData.education}/>
+        <ResumeSection content={resumeContent.experience}/>
+        <ResumeSection content={resumeContent.skills}/>
+        <ResumeSection content={resumeContent.education}/>
     </div>
 );
 
+// Returns a resume section
 function ResumeSection(props) {
     return (
         <Card style={styles.resumeSection}>
@@ -31,6 +33,16 @@ function ResumeSection(props) {
         </Card>);
 }
 
+// Returns an overlay with image and title
+function Overlay(props) {
+    return (
+        <CardMedia overlay={<CardTitle title={props.overlay.title}/>}>
+            <img src={props.overlay.imageURL} role="presentation"/>
+        </CardMedia>
+    );
+}
+
+// Returns an array of subcards
 function SubCards(props) {
     let items = [];
     for (let i = 0; i < props.subCards.length; i++) {
@@ -41,51 +53,50 @@ function SubCards(props) {
     return <div>{items}</div>;
 }
 
+// Returns a subcard for a resume section
 function SubCard(props) {
     return (
         <Card >
             <CardTitle
                 title={props.subCard.title}
                 subtitle={props.subCard.subTitle}
-                actAsExpander
-                showExpandableButton
+                actAsExpander={props.subCard.expander || false}
+                showExpandableButton={props.subCard.expander || false}
             />
 
-            <CardText expandable={true}>
-                <Paragraphs paragraphs={props.subCard.paragraphs}/>
-                <Bullets bullets={props.subCard.bullets}/>
-            </CardText>
-
+            <SubCardText cardText={props.subCard.cardText} expandable={props.subCard.expander || false}/>
         </Card>
     );
+}
+
+// Returns a card text for a subCard
+function SubCardText(props) {
+    return props.cardText ? (
+        <CardText>
+            <Paragraphs paragraphs={props.cardText.paragraphs}/>
+            <Bullets bullets={props.cardText.bullets}/>
+        </CardText>
+    ) : null;
 }
 
 // Returns an array of <p></p>'s
 function Paragraphs(props) {
     let items = [];
-    for (let i = 0; i < props.paragraphs.length; i++) {
+    for (let i = 0; props.paragraphs && i < props.paragraphs.length; i++) {
         let paragraph = props.paragraphs[i];
         items.push(<p key={paragraph}>{paragraph}</p>);
     }
-    return <div>{items}</div>;
+    return items.length > 0 ? <div>{items}</div> : null;
 }
 
 // Returns an array of <li/>'s under a <ul/>
 function Bullets(props) {
     let items = [];
-    for (let i = 0; i < props.bullets.length; i++) {
+    for (let i = 0; props.bullets && i < props.bullets.length; i++) {
         let bullet = props.bullets[i];
         items.push(<li key={bullet}>{bullet}</li>);
     }
-    return <ul>{items}</ul>;
-}
-
-function Overlay(props) {
-    return (
-        <CardMedia overlay={<CardTitle title={props.overlay.title}/>}>
-            <img src={props.overlay.imageURL}/>
-        </CardMedia>
-    );
+    return items.length > 0 ? <ul>{items}</ul> : null;
 }
 
 export default CardExampleWithAvatar;
