@@ -52,7 +52,7 @@ function SubCard(props) {
             />
 
             <CardText expandable={true}>
-                {props.subCard.paragraph}
+                <Paragraphs paragraphs={props.subCard.paragraphs}/>
                 <Bullets bullets={props.subCard.bullets}/>
             </CardText>
 
@@ -60,6 +60,17 @@ function SubCard(props) {
     );
 }
 
+// Returns an array of <p></p>'s
+function Paragraphs(props) {
+    let items = [];
+    for (let i = 0; i < props.paragraphs.length; i++) {
+        let paragraph = props.paragraphs[i];
+        items.push(<p key={paragraph}>{paragraph}</p>);
+    }
+    return <div>{items}</div>;
+}
+
+// Returns an array of <li/>'s under a <ul/>
 function Bullets(props) {
     let items = [];
     for (let i = 0; i < props.bullets.length; i++) {

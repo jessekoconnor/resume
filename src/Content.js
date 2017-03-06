@@ -13,7 +13,7 @@ module.exports = {
             {
                 title: 'Software Engineer 2, Meltwater',
                 subTitle: 'Manchester, NH: 2014 to Present',
-                paragraph: 'Member of agile engineering team dedicated to a SAAS media monitoring solution',
+                paragraphs: ['Member of agile engineering team dedicated to a SAAS media monitoring solution'],
                 bullets: [
                     'Self-directed full stack developer on a cross functional and deployment owning team',
                     'Quantified microservice architecture to encourage team ownership and enablement',
@@ -25,7 +25,7 @@ module.exports = {
             {
                 title: 'Developer, UNH InterOperability Laboratory',
                 subTitle: 'Durham, NH: 2009 to 2013',
-                paragraph: 'Developer and Test Technician of networking and data communication testing services.',
+                paragraphs: ['Developer and Test Technician of networking and data communication testing services.'],
                 bullets: [
                     'Founder of VoIP Remote Test Bed Service',
                     'Developed packaging automation for core product IOL-Intact',
@@ -48,7 +48,7 @@ module.exports = {
             {
                 title: 'BS in Computer Science',
                 subTitle: 'University of New Hampshire (2009 to 2013)',
-                paragraph: 'Bachelors of Science in Computer Science. Relevant courses:',
+                paragraphs: ['Bachelors of Science in Computer Science', 'Notable courses:'],
                 bullets: [
                     'Artificial Intelligence',
                     'Algorithms',
