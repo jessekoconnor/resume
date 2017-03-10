@@ -1,6 +1,13 @@
 import React from 'react';
 import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
+import MenuItem from 'material-ui/MenuItem';
+import FontIcon from 'material-ui/FontIcon';
+import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
+import ActionHome from 'material-ui/svg-icons/action/home';
 import resumeContent from './Content';
 
 const styles = {
@@ -11,15 +18,86 @@ const styles = {
     }
 };
 
-const CardExampleWithAvatar = () => (
-    <div>
-        <AppBar title="Resume Site"/>
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-        <ResumeSection content={resumeContent.experience}/>
-        <ResumeSection content={resumeContent.skills}/>
-        <ResumeSection content={resumeContent.education}/>
-    </div>
-);
+        this.toggleDrawer = this.toggleDrawer.bind(this);
+        this.closeDrawer = this.closeDrawer.bind(this);
+
+        this.state = {drawerOpen: false};
+    }
+
+    toggleDrawer() {
+        this.setState((prevState) => ({drawerOpen: !prevState.drawerOpen}));
+    }
+
+    closeDrawer() {
+        this.setState({drawerOpen: false});
+    }
+
+    render() {
+        const styless = {
+            smallIcon: {
+                width: 36,
+                height: 36,
+            },
+            mediumIcon: {
+                width: 48,
+                height: 48,
+            },
+            largeIcon: {
+                width: 60,
+                height: 60,
+            },
+            small: {
+                width: 72,
+                height: 72,
+                padding: 16,
+            },
+            medium: {
+                width: 96,
+                height: 96,
+                padding: 24,
+            },
+            large: {
+                width: 120,
+                height: 120,
+                padding: 30,
+            },
+        };
+
+        return (
+            <div>
+                <AppBar title="Resume Site" iconClassNameRight="muidocs-icon-navigation-expand-more"
+                        onLeftIconButtonTouchTap={this.toggleDrawer}>
+                    <Tabs>
+
+
+                    </Tabs>
+                </AppBar>
+
+                <Drawer
+                    docked={false}
+                    width={200}
+                    open={this.state.drawerOpen}
+                    onRequestChange={this.toggleDrawer}
+                >
+                    <IconButton onTouchTap={this.closeDrawer}>
+                        <ActionHome styles={styless.largeIcon}/>
+                    </IconButton>
+                    <MenuItem onTouchTap={this.closeDrawer}>
+                        <FlatButton label="Resume"/>
+                    </MenuItem>
+                </Drawer>
+
+                <ResumeSection content={resumeContent.experience}/>
+                <ResumeSection content={resumeContent.skills}/>
+                <ResumeSection content={resumeContent.education}/>
+            </div>
+        );
+    }
+}
 
 // Returns a resume section
 function ResumeSection(props) {
@@ -72,11 +150,11 @@ function SubCard(props) {
 // Returns a card text for a subCard
 function SubCardText(props) {
     return props.cardText ? (
-        <CardText>
-            <Paragraphs paragraphs={props.cardText.paragraphs}/>
-            <Bullets bullets={props.cardText.bullets}/>
-        </CardText>
-    ) : null;
+            <CardText>
+                <Paragraphs paragraphs={props.cardText.paragraphs}/>
+                <Bullets bullets={props.cardText.bullets}/>
+            </CardText>
+        ) : null;
 }
 
 // Returns an array of <p></p>'s
@@ -98,5 +176,3 @@ function Bullets(props) {
     }
     return items.length > 0 ? <ul>{items}</ul> : null;
 }
-
-export default CardExampleWithAvatar;
