@@ -8,6 +8,7 @@ import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
+import ActionHome from 'material-ui/svg-icons/action/';
 import resumeContent from './Content';
 
 const styles = {
@@ -38,39 +39,28 @@ export default class App extends React.Component {
 
     render() {
         const styless = {
-            smallIcon: {
-                width: 36,
-                height: 36,
-            },
-            mediumIcon: {
-                width: 48,
-                height: 48,
-            },
             largeIcon: {
                 width: 60,
                 height: 60,
-            },
-            small: {
-                width: 72,
-                height: 72,
-                padding: 16,
-            },
-            medium: {
-                width: 96,
-                height: 96,
-                padding: 24,
-            },
-            large: {
-                width: 120,
-                height: 120,
-                padding: 30,
             },
         };
 
         return (
             <div>
-                <AppBar title="Resume Site" iconClassNameRight="muidocs-icon-navigation-expand-more"
-                        onLeftIconButtonTouchTap={this.toggleDrawer}>
+                <AppBar
+                    title="Resume Site"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    onLeftIconButtonTouchTap={this.toggleDrawer}
+                    iconElementRight={
+                        <FlatButton
+                            href="https://github.com/jessekoconnor/resume"
+                            target="_blank"
+                            label="GitHub Link"
+                            secondary={true}
+                            icon={<FontIcon className="muidocs-icon-custom-github" />}
+                        />
+                    }
+                >
                     <Tabs>
 
 
