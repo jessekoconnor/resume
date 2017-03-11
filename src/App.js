@@ -1,10 +1,10 @@
 import React from 'react';
 
 // imports from this directory
-import ResumeContent from './Content';
-import ResumeSection from './ResumeSection';
 import SiteBar from './SiteBar';
 import SiteDrawer from './SiteDrawer';
+import ResumeContent from './Content';
+import ResumeSection from './ResumeSection';
 
 export default class App extends React.Component {
     constructor(props) {
