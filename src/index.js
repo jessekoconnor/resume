@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppHeader from './App';
+import App from './App';
 import './index.css';
 
 // Needed for onTouchTap
@@ -11,7 +11,7 @@ injectTapEventPlugin();
 
 ReactDOM.render(
     <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <AppHeader />
+        <App />
     </MuiThemeProvider>,
 
     document.getElementById('root')

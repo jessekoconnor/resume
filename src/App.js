@@ -1,13 +1,10 @@
 import React from 'react';
-import Drawer from 'material-ui/Drawer';
-import AppBar from 'material-ui/AppBar';
-import MenuItem from 'material-ui/MenuItem';
-import FontIcon from 'material-ui/FontIcon';
-import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import resumeContent from './Content';
+
+// imports from this directory
+import ResumeContent from './Content';
 import ResumeSection from './ResumeSection';
+import SiteBar from './SiteBar';
+import SiteDrawer from './SiteDrawer';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -28,47 +25,19 @@ export default class App extends React.Component {
     }
 
     render() {
-        const styles = {
-            largeIcon: {
-                width: 60,
-                height: 60,
-            },
-        };
-
         return (
             <div>
-                <AppBar
-                    title="Resume Site"
-                    onLeftIconButtonTouchTap={this.toggleDrawer}
-                    iconElementRight={
-                        <FlatButton
-                            href="https://github.com/jessekoconnor/resume"
-                            target="_blank"
-                            label="See this site on github"
-                            secondary={true}
-                            icon={<FontIcon className="muidocs-icon-custom-github" />}
-                        />
-                    }
-                >
-                </AppBar>
+                <SiteBar toggleDrawer={this.toggleDrawer}/>
+                <SiteDrawer
+                    drawerOpen={this.state.drawerOpen}
+                    toggleDrawer={this.toggleDrawer}
+                    closeDrawer={this.closeDrawer}
+                />
 
-                <Drawer
-                    docked={false}
-                    width={200}
-                    open={this.state.drawerOpen}
-                    onRequestChange={this.toggleDrawer}
-                >
-                    <IconButton onTouchTap={this.closeDrawer}>
-                        <ActionHome style={styles.largeIcon}/>
-                    </IconButton>
-                    <MenuItem onTouchTap={this.closeDrawer}>
-                        <FlatButton label="Resume"/>
-                    </MenuItem>
-                </Drawer>
 
-                <ResumeSection content={resumeContent.experience}/>
-                <ResumeSection content={resumeContent.skills}/>
-                <ResumeSection content={resumeContent.education}/>
+                <ResumeSection content={ResumeContent.experience}/>
+                <ResumeSection content={ResumeContent.skills}/>
+                <ResumeSection content={ResumeContent.education}/>
             </div>
         );
     }
