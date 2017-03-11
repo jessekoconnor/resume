@@ -18,7 +18,7 @@ export default class ResumeSection extends React.Component {
             <Card style={styles.resumeSection}>
                 {/*<CardHeader title={props.content.header.title}/>*/}
 
-                <Overlay overlay={this.props.content.overlay}/>
+                <CardOverlay overlay={this.props.content.overlay}/>
 
                 <SubCards subCards={this.props.content.subCards}/>
             </Card>);
@@ -26,7 +26,7 @@ export default class ResumeSection extends React.Component {
 }
 
 // Returns an overlay with image and title
-function Overlay(props) {
+function CardOverlay(props) {
     return (
         <CardMedia overlay={<CardTitle title={props.overlay.title}/>}>
             <img src={props.overlay.imageURL} role="presentation"/>
