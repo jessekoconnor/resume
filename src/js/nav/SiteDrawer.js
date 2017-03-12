@@ -34,7 +34,7 @@ function Home(props) {
 // Returns an array of tabs
 function Tabs(props) {
     let items = [];
-    for (let i = 0; i < props.tabs.length; i++) {
+    for (let i = 0; props.tabs && i < props.tabs.length; i++) {
         items.push(
             <Tab key={i} index={i} selectTab={props.selectTab} closeDrawer={props.closeDrawer} tab={props.tabs[i]}/>
         );
@@ -56,7 +56,7 @@ class Tab extends React.Component {
 
     render() {
         return(
-            <MenuItem onTouchTap={this.clickTab} primaryText={this.props.tab.title}>
+            <MenuItem onTouchTap={this.clickTab} primaryText={this.props.tab.tabTitle}>
             </MenuItem>
         );
     }
