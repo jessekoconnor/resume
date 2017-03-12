@@ -1,10 +1,8 @@
 import React from 'react';
 import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
-
-
 // Returns a resume section
-export default class ResumeSection extends React.Component {
+class ResumeSection extends React.Component {
     render() {
         let styles = {
             resumeSection: {
@@ -90,3 +88,5 @@ function Bullets(props) {
     }
     return items.length > 0 ? <ul>{items}</ul> : null;
 }
+
+module.exports = ResumeSection;

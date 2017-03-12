@@ -1,19 +1,33 @@
 import React from 'react';
 
-// imports from this directory
-import SiteBar from './SiteBar';
-import SiteDrawer from './SiteDrawer';
-import ResumeContent from './Content';
-import ResumeSection from './ResumeSection';
+// Source Code
+import SiteBar from './nav/SiteBar';
+import SiteDrawer from './nav/SiteDrawer';
+import Resume from './resume/Resume';
 
-export default class App extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
         this.closeDrawer = this.closeDrawer.bind(this);
+        this.selectTab = this.selectTab.bind(this);
 
-        this.state = {drawerOpen: false};
+        this.tabs = [
+            {
+                title: 'Resume',
+                content: <Resume />
+            },
+            {
+                title: 'About This Site',
+                content: <div>About This Site</div>
+            }
+        ];
+
+        this.state = {
+            drawerOpen: false,
+            selectedContent: this.tabs[0].content,
+        };
     }
 
     toggleDrawer() {
@@ -24,21 +38,35 @@ export default class App extends React.Component {
         this.setState({drawerOpen: false});
     }
 
+    selectTab(index) {
+        console.log('selectTab', index);
+        this.setState({selectedContent:this.tabs[index].content})
+    }
+
     render() {
         return (
             <div>
-                <SiteBar toggleDrawer={this.toggleDrawer}/>
+                <SiteBar
+                    toggleDrawer={this.toggleDrawer}
+                />
                 <SiteDrawer
                     drawerOpen={this.state.drawerOpen}
                     toggleDrawer={this.toggleDrawer}
                     closeDrawer={this.closeDrawer}
+                    selectTab={this.selectTab}
+                    tabs={this.tabs}
                 />
 
-
-                <ResumeSection content={ResumeContent.experience}/>
-                <ResumeSection content={ResumeContent.skills}/>
-                <ResumeSection content={ResumeContent.education}/>
+                <SiteContent
+                    content={this.state.selectedContent}
+                />
             </div>
         );
     }
 }
+
+function SiteContent(props) {
+    return(props.content);
+}
+
+module.exports = App;

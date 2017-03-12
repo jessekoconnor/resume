@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import GitHub from '../../images/github/GitHub-Mark-32px.png';
+import GitHub from '../../../images/github/GitHub-Mark-32px.png';
 
 class SiteBar extends React.Component {
     render() {
