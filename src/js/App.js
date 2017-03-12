@@ -17,11 +17,15 @@ class App extends React.Component {
             {
                 title: 'Resume',
                 content: <Resume />
+            },{
+                title: 'Portfolio',
+                content: <div>Portfolio</div>
             },
+
             {
                 title: 'About This Site',
                 content: <div>About This Site</div>
-            }
+            },
         ];
 
         this.state = {
