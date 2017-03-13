@@ -17,7 +17,7 @@ class Resume extends React.Component {
                 <Divider />
                 <p style={{
                     paddingLeft: '15px'
-                }}> Portsmouth, NH </p>
+                }}> Living in Portsmouth New Hampshire, USA </p>
 
                 <ResumeSection content={ResumeContent.experience}/>
                 <ResumeSection content={ResumeContent.skills}/>

@@ -1,5 +1,5 @@
-import React from 'react';
-import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import React from "react";
+import {Card, CardMedia, CardTitle, CardText} from "material-ui/Card";
 
 // Returns a resume section
 class ResumeSection extends React.Component {
@@ -46,23 +46,17 @@ function SubCards(props) {
 function SubCard(props) {
     return (
         <Card >
-            <SubCardTitle subCard={props.subCard}/>
+            <CardTitle
+                title={<GetModifiedTitle subCard={props.subCard}/>}
+                subtitle={props.subCard.subTitle}
+                actAsExpander={props.subCard.expander || false}
+                showExpandableButton={props.subCard.expander || false}
+            />
+
 
             <SubCardText cardText={props.subCard.cardText} expandable={props.subCard.expander || false}/>
         </Card>
     );
-}
-
-// Returns a title for a subcard
-function SubCardTitle(props) {
-    return (
-        <CardTitle
-            title={<GetModifiedTitle subCard={props.subCard}/>}
-            titleStyle={GetModifiedTitleStyle(props.subCard)}
-            subtitle={props.subCard.subTitle}
-            actAsExpander={props.subCard.expander || false}
-            showExpandableButton={props.subCard.expander || false}
-        />);
 }
 
 function GetModifiedTitle(props) {
@@ -73,16 +67,6 @@ function GetModifiedTitle(props) {
             <code>{props.subCard.codeTitle}</code>
         );
     }
-}
-
-function GetModifiedTitleStyle(subCard) {
-    if (subCard.codeTitle) {
-        return {
-            display: 'block',
-            whiteSpace: 'pre-wrap',
-        };
-    }
-    return null;
 }
 
 // Returns a card text for a subCard
