@@ -1,8 +1,7 @@
-import React from 'react';
-
+import React from "react";
 // Source Code
-import SiteBar from './SiteBar';
-import SiteDrawer from './SiteDrawer';
+import SiteBar from "./SiteBar";
+import SiteDrawer from "./SiteDrawer";
 
 class AppFrame extends React.Component {
     constructor(props) {
@@ -45,13 +44,9 @@ class AppFrame extends React.Component {
                     tabs={this.tabs}
                 />
 
-                <div style={{
-                    margin: '48px 72px',
-                }}>
-                    <SiteContent
-                        content={this.state.selectedContent}
-                    />
-                </div>
+                <SiteContent
+                    content={this.state.selectedContent}
+                />
             </div>
         );
     }

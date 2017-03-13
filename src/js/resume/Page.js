@@ -15,9 +15,9 @@ class Resume extends React.Component {
                     paddingLeft: '15px'
                 }}> Jesse O'Connor </h2>
                 <Divider />
-                <h3 style={{
+                <p style={{
                     paddingLeft: '15px'
-                }}> 1001 Islington St. Unit #31 Portsmouth, NH 03801,      (603)731-5283,      JESSEKOCONNOR@GMAIL.COM </h3>
+                }}> Portsmouth, NH </p>
 
                 <ResumeSection content={ResumeContent.experience}/>
                 <ResumeSection content={ResumeContent.skills}/>

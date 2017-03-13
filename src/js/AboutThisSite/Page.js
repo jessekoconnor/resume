@@ -14,7 +14,9 @@ class AboutThisSite extends React.Component {
         };
 
         return (
-            <div>
+            <div style={{
+                margin: '48px 72px',
+            }}>
                 <Title render={(previousTitle) => `${previousTitle} - About This Site`}/>
                 <h2> {data.title} </h2>
                 <Divider />
