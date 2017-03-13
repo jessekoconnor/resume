@@ -28,8 +28,7 @@ class AppFrame extends React.Component {
     }
 
     selectTab(index) {
-        console.log('selectTab', index);
-        this.setState({selectedContent:this.tabs[index].content})
+        this.setState({selectedContent: this.tabs[index].content})
     }
 
     render() {
@@ -46,16 +45,20 @@ class AppFrame extends React.Component {
                     tabs={this.tabs}
                 />
 
-                <SiteContent
-                    content={this.state.selectedContent}
-                />
+                <div style={{
+                    margin: '48px 72px',
+                }}>
+                    <SiteContent
+                        content={this.state.selectedContent}
+                    />
+                </div>
             </div>
         );
     }
 }
 
 function SiteContent(props) {
-    return(props.content);
+    return (props.content);
 }
 
 module.exports = AppFrame;

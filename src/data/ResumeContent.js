@@ -1,9 +1,5 @@
 module.exports = {
     experience: {
-        // header: {
-        //     title: 'Experience',
-        // },
-
         overlay: {
             title: 'Experience',
             imageURL: 'http://blog.aftercollege.com/wp-content/uploads/2015/12/software-engineering-internship-4-1024x682.jpg',
@@ -11,7 +7,7 @@ module.exports = {
 
         subCards: [
             {
-                title: 'Software Engineer 2, Meltwater',
+                title: 'Meltwater',
                 subTitle: 'Manchester, NH: 2014 to Present',
                 cardText: {
                     paragraphs: ['Member of agile engineering team dedicated to a SAAS media monitoring solution'],
@@ -26,7 +22,7 @@ module.exports = {
                 expander: true,
             },
             {
-                title: 'Developer, UNH InterOperability Laboratory',
+                title: 'UNH InterOperability Laboratory',
                 subTitle: 'Durham, NH: 2009 to 2013',
                 cardText: {
                     paragraphs: ['Developer and Test Technician of networking and data communication testing services.'],
@@ -41,10 +37,6 @@ module.exports = {
         ],
     },
     education: {
-        // header: {
-        //     title: 'Experience',
-        // },
-
         overlay: {
             title: 'Education',
             imageURL: 'http://i.huffpost.com/gen/1774503/images/o-UNIVERSITY-OF-NEW-HAMPSHIRE-CAMPUS-facebook.jpg',
@@ -53,7 +45,7 @@ module.exports = {
         subCards: [
             {
                 title: 'BS in Computer Science',
-                subTitle: 'University of New Hampshire (2009 to 2013)',
+                subTitle: 'UNH (2009 to 2013)',
                 cardText: {
                     paragraphs: ['Bachelors of Science in Computer Science', 'Notable courses:'],
                     bullets: [
@@ -72,10 +64,6 @@ module.exports = {
         ],
     },
     skills: {
-        // header: {
-        //     title: 'Experience',
-        // },
-
         overlay: {
             title: 'Skilled in',
             imageURL: 'http://cdn.fansided.com/wp-content/blogs.dir/386/files/2016/12/westworld-bicameral-mind-mainland.jpg',
@@ -95,7 +83,7 @@ module.exports = {
                 subTitle: 'git, vim, jetbrains, iterm2',
             },
             {
-                title: 'vim ~/.bash_profile',
+                codeTitle: '$> vim ~/.bash_profile',
                 subTitle: 'I have a passion for cultivating the perfect bash profile [system]',
             },
         ],

@@ -1,8 +1,10 @@
 import React from 'react';
 
 // Source Code
-import Resume from './resume/Resume';
+import Resume from './resume/Page';
 import AppFrame from './nav/AppFrame';
+import AboutThisSite from './AboutThisSite/Page';
+import Portfolio from './Portfolio/Page';
 
 class App extends React.Component {
     constructor(props) {
@@ -15,11 +17,11 @@ class App extends React.Component {
             },
             {
                 tabTitle: 'Portfolio',
-                content: <div>Portfolio</div>
+                content: <Portfolio />
             },
             {
                 tabTitle: 'About This Site',
-                content: <div>About This Site</div>
+                content: <AboutThisSite />
             },
         ];
     }

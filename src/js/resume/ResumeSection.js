@@ -6,7 +6,6 @@ class ResumeSection extends React.Component {
     render() {
         let styles = {
             resumeSection: {
-                width: '90%',
                 margin: '10px auto 10px auto',
                 border: '2px',
             }
@@ -47,16 +46,43 @@ function SubCards(props) {
 function SubCard(props) {
     return (
         <Card >
-            <CardTitle
-                title={props.subCard.title}
-                subtitle={props.subCard.subTitle}
-                actAsExpander={props.subCard.expander || false}
-                showExpandableButton={props.subCard.expander || false}
-            />
+            <SubCardTitle subCard={props.subCard}/>
 
             <SubCardText cardText={props.subCard.cardText} expandable={props.subCard.expander || false}/>
         </Card>
     );
+}
+
+// Returns a title for a subcard
+function SubCardTitle(props) {
+    return (
+        <CardTitle
+            title={<GetModifiedTitle subCard={props.subCard}/>}
+            titleStyle={GetModifiedTitleStyle(props.subCard)}
+            subtitle={props.subCard.subTitle}
+            actAsExpander={props.subCard.expander || false}
+            showExpandableButton={props.subCard.expander || false}
+        />);
+}
+
+function GetModifiedTitle(props) {
+    if (props.subCard.title) {
+        return (<div>{props.subCard.title}</div>);
+    } else if (props.subCard.codeTitle) {
+        return (
+            <code>{props.subCard.codeTitle}</code>
+        );
+    }
+}
+
+function GetModifiedTitleStyle(subCard) {
+    if (subCard.codeTitle) {
+        return {
+            display: 'block',
+            whiteSpace: 'pre-wrap',
+        };
+    }
+    return null;
 }
 
 // Returns a card text for a subCard
