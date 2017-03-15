@@ -2,9 +2,15 @@ import React from 'react';
 import ResumeSection from './ResumeSection';
 import ResumeContent from '../../data/ResumeContent';
 import Divider from 'material-ui/Divider';
-
+var ReactGA = require('react-ga');
+ReactGA.initialize('UA-93732020-1');
 
 class Resume extends React.Component {
+
+    componentDidMount() {
+        logPageView();
+    }
+
     render() {
         return (
             <div style={{
@@ -25,6 +31,11 @@ class Resume extends React.Component {
             </div>
         );
     }
+}
+
+function logPageView() {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
 }
 
 module.exports = Resume;
