@@ -2,6 +2,10 @@ import React from "react";
 // Source Code
 import SiteBar from "./SiteBar";
 import SiteDrawer from "./SiteDrawer";
+import Title from 'react-title-component';
+
+var ReactGA = require('react-ga');
+ReactGA.initialize('UA-93732020-1');
 
 class AppFrame extends React.Component {
     constructor(props) {
@@ -14,8 +18,9 @@ class AppFrame extends React.Component {
 
         this.state = {
             drawerOpen: false,
-            selectedContent: this.props.tabs ? this.props.tabs[0].content : null,
+            selectedTab: this.props.tabs ? this.props.tabs[0] : null,
         };
+        logPageView(this.props.tabs[0].tabTitle);
     }
 
     toggleDrawer() {
@@ -27,12 +32,14 @@ class AppFrame extends React.Component {
     }
 
     selectTab(index) {
-        this.setState({selectedContent: this.tabs[index].content})
+        logPageView(this.tabs[index].tabTitle);
+        this.setState({selectedTab: this.tabs[index]})
     }
 
     render() {
         return (
             <div>
+                <Title render={(previousTitle) => `jesse: `}/>
                 <SiteBar
                     toggleDrawer={this.toggleDrawer}
                 />
@@ -44,9 +51,13 @@ class AppFrame extends React.Component {
                     tabs={this.tabs}
                 />
 
-                <SiteContent
-                    content={this.state.selectedContent}
-                />
+                <div>
+                    <Title render={(previousTitle) => `${previousTitle} ${this.state.selectedTab.tabTitle}`}/>
+                    <SiteContent
+                        content={this.state.selectedTab.content}
+                    />
+                </div>
+
             </div>
         );
     }
@@ -54,6 +65,11 @@ class AppFrame extends React.Component {
 
 function SiteContent(props) {
     return (props.content);
+}
+
+function logPageView(pageName) {
+    ReactGA.set({ page: pageName });
+    ReactGA.pageview(pageName);
 }
 
 module.exports = AppFrame;

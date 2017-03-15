@@ -17,7 +17,6 @@ class Portfolio extends React.Component {
             <div style={{
                 margin: '48px 72px',
             }}>
-                <Title render={(previousTitle) => `${previousTitle} - Portfolio`}/>
                 <h2> {data.title} </h2>
                 <Divider />
                 <Paragraphs paragraphs={data.paragraphs} />

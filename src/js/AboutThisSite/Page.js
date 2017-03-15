@@ -1,5 +1,4 @@
 import React from 'react';
-import Title from 'react-title-component';
 import Divider from 'material-ui/Divider';
 
 class AboutThisSite extends React.Component {
@@ -17,7 +16,6 @@ class AboutThisSite extends React.Component {
             <div style={{
                 margin: '48px 72px',
             }}>
-                <Title render={(previousTitle) => `${previousTitle} - About This Site`}/>
                 <h2> {data.title} </h2>
                 <Divider />
                 <Paragraphs paragraphs={data.paragraphs} />
