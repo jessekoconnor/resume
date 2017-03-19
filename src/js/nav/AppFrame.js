@@ -37,6 +37,12 @@ class AppFrame extends React.Component {
     }
 
     render() {
+        let styles = {
+            siteContent: {
+                width: '90%',
+                margin: '10px auto 10px auto',
+            },
+        }
         return (
             <div>
                 <Title render={(previousTitle) => `jesse: `}/>
@@ -53,7 +59,7 @@ class AppFrame extends React.Component {
 
                 <div>
                     <Title render={(previousTitle) => `${previousTitle} ${this.state.selectedTab.tabTitle}`}/>
-                    <SiteContent
+                    <SiteContent style={styles.siteContent}
                         content={this.state.selectedTab.content}
                     />
                 </div>

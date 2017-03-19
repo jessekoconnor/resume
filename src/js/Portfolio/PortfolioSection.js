@@ -10,7 +10,8 @@ class PortfolioSection extends React.Component {
     render() {
         let styles = {
             resumeSection: {},
-            cardOverlay: {}
+            cardOverlay: {},
+            avatar: {cursor: "pointer"},
         };
 
         return (
@@ -22,7 +23,7 @@ class PortfolioSection extends React.Component {
                         <Avatar icon={
                             <img src={GitHub} alt="Logo" />
                         } onTouchTap={avatarClick}
-                        style={{cursor: "pointer"}}/>
+                        style={styles.avatar}/>
                     }
                 />
                 <CardOverlay style={styles.cardOverlay} />
