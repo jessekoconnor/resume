@@ -2,8 +2,6 @@ import React from "react";
 import {Card, CardHeader, CardMedia, CardTitle, CardText} from "material-ui/Card";
 import Avatar from 'material-ui/Avatar';
 import GitHub from '../../../images/github/GitHub-Mark-32px.png';
-import {blue500, red500, greenA200} from 'material-ui/styles/colors';
-import IconButton from 'material-ui/IconButton';
 import GridListSingleLine from './GridListSingleList';
 
 
@@ -11,7 +9,8 @@ import GridListSingleLine from './GridListSingleList';
 class PortfolioSection extends React.Component {
     render() {
         let styles = {
-            resumeSection: {}
+            resumeSection: {},
+            cardOverlay: {}
         };
 
         return (
@@ -26,7 +25,7 @@ class PortfolioSection extends React.Component {
                         style={{cursor: "pointer"}}/>
                     }
                 />
-                <CardOverlay style={{width:'auto'}} overlay={this.props.content.overlay}/>
+                <CardOverlay style={styles.cardOverlay} />
 
                 <SubCards subCards={this.props.content.subCards}/>
 

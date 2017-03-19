@@ -7,7 +7,7 @@ class AboutThisSite extends React.Component {
         let data = {
             title: 'About This Site',
             paragraphs: [
-                'I built this site in my spare time using Facebook React, Google\'s material design, and Heroku. Feel free to look at the project and use it for yourself.',
+                'I built this site in my spare time using Facebook React, Google\'s material design, and Heroku. Feel free to look at the project and use it for yourself by clicking the github icon on the top right corner of this application.',
             ],
         };
 

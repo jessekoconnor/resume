@@ -6,26 +6,26 @@ const styles = {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
-        padding: '10px',
-        height: '510px',
+        height: '715px',
     },
     gridList: {
         display: 'flex',
         flexWrap: 'nowrap',
+        flexShrink: 0,
         overflowX: 'auto',
-        paddingTop: '10px',
+        height: 'auto',
     },
     gridTile: {
-        minHeight: '400px',
-        minWidth: '272px',
         margin: '5px',
-        paddingTop: '20px',
-        paddingBottom: '60px',
+        height: 'auto',
+
     },
     titleStyle: {
         color: 'rgb(1, 0, 0)',
     },
     img: {
+        minHeight: '100%',
+        minWidth: '100%',
     }
 };
 
