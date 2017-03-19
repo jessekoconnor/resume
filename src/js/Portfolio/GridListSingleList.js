@@ -7,11 +7,11 @@ const styles = {
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         height: '715px',
+        width: '100%',
     },
     gridList: {
         display: 'flex',
         flexWrap: 'nowrap',
-        flexShrink: 0,
         overflowX: 'auto',
         height: 'auto',
     },
