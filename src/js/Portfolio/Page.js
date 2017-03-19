@@ -1,15 +1,15 @@
 import React from 'react';
-import Title from 'react-title-component';
 import Divider from 'material-ui/Divider';
+import PortfolioSection from './PortfolioSection';
+import ResumeContent from '../../data/PortfolioContent';
 
 class Portfolio extends React.Component {
     render() {
 
         let data = {
             title: 'Portfolio',
-            paragraphs: [
-                'This is my portfolio of work. I have a react native mobile app here.',
-                'This other part will be here too',
+            intro: [
+                'This is a collection of my work, from new to old. If anything (including this site) sparks your interest, fork away, I am glad to share.'
             ],
         };
 
@@ -19,7 +19,9 @@ class Portfolio extends React.Component {
             }}>
                 <h2> {data.title} </h2>
                 <Divider />
-                <Paragraphs paragraphs={data.paragraphs} />
+                <Paragraphs paragraphs={data.intro} />
+
+                <PortfolioSection content={ResumeContent.gitBrowser}/>
             </div>
         );
     }
