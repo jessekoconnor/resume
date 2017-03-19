@@ -5,27 +5,22 @@ const styles = {
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        height: '715px',
-        width: '100%',
+        justifyContent: 'center',
+        minHeight: '715px',
     },
     gridList: {
         display: 'flex',
         flexWrap: 'nowrap',
         overflowX: 'auto',
-        height: 'auto',
+        marginRight: '2px',
+        marginLeft: '2px',
     },
     gridTile: {
+        display: 'flex',
         margin: '5px',
         height: 'auto',
-
-    },
-    titleStyle: {
-        color: 'rgb(1, 0, 0)',
     },
     img: {
-        minHeight: '100%',
-        minWidth: '100%',
     }
 };
 
@@ -53,7 +48,6 @@ const GridListExampleSingleLine = () => (
             {tilesData.map((tile) => (
                 <GridTile
                     key={tile.img}
-                    titleStyle={styles.titleStyle}
                     style={styles.gridTile}
                 >
                     <img src={tile.img} style={styles.img}/>
