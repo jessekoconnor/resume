@@ -15,10 +15,10 @@ class PortfolioSection extends React.Component {
         };
 
         return (
-            <Card style={styles.resumeSection} className="row">
+            <Card style={styles.resumeSection}>
                 <CardHeader
-                    title="Github Browser"
-                    subtitle="An iOS application for browsing github"
+                    title={this.props.content.header.title}
+                    subtitle={this.props.content.header.subtitle}
                     avatar={
                         <Avatar icon={
                             <img src={GitHub} alt="Logo" />

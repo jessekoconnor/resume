@@ -1,26 +1,52 @@
 import React from 'react';
 import Divider from 'material-ui/Divider';
 import PortfolioSection from './PortfolioSection';
-import PortfolioContent from '../../data/PortfolioContent';
 
 class Portfolio extends React.Component {
     render() {
 
-        let data = {
-            title: 'Portfolio',
-            intro: [
-                'This is a collection of my work, from new to old. If anything (including this site) sparks your interest, fork away, I am glad to share.'
-            ],
-        };
+        let PortfolioContent = {
+                title: 'Portfolio',
+                intro: [
+                    'This is a collection of my work, from new to old. If anything (including this site) sparks your interest, fork away, I am glad to share.'
+                ],
+                gitBrowser: {
+                    header: {
+                        title: 'gitBrowser',
+                        subtitle: 'jessekoconnor/gitBrowser',
+                        avatarHref: 'https://github.com/jessekoconnor/gitBrowser',
+                    },
+                    overlay: {
+                        imageURL1: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Login.png',
+                        imageURL2: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Feed.png',
+                        imageURL3: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Search.png',
+                    },
+
+                    subCards: [
+                        {
+                            title: 'GitBrowser',
+                            subTitle: 'A GitHub browser for iOS',
+                            cardText: {
+                                paragraphs: ['This app is built with react-native and utilizes the github api. I Made it to satisfy a desire to learn react and to get an introduction to mobile development. It can be used to log into github and view recent activity in your gitHub feed. It can also be used to search github for repositories relevant to certain keyworkd specified.',
+                                ],
+                            },
+                            expander: true,
+                        }
+                    ],
+                },
+            },
+            styles = {
+                wrapper: {
+                    width: '94%',
+                    margin: '6px auto 6px auto',
+                },
+            };
 
         return (
-            <div style={{
-                width: '90%',
-                margin: '10px auto 10px auto',
-            }}>
-                <h2> {data.title} </h2>
+            <div style={styles.wrapper}>
+                <h2> {PortfolioContent.title} </h2>
                 <Divider />
-                <Paragraphs paragraphs={data.intro} />
+                <Paragraphs paragraphs={PortfolioContent.intro} />
 
                 <PortfolioSection content={PortfolioContent.gitBrowser}/>
             </div>
