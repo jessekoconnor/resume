@@ -1,7 +1,7 @@
 import React from 'react';
 import Divider from 'material-ui/Divider';
 import PortfolioSection from './PortfolioSection';
-import ResumeContent from '../../data/PortfolioContent';
+import PortfolioContent from '../../data/PortfolioContent';
 
 class Portfolio extends React.Component {
     render() {
@@ -15,13 +15,14 @@ class Portfolio extends React.Component {
 
         return (
             <div style={{
-                margin: '48px 72px',
+                width: '90%',
+                margin: '10px auto 10px auto',
             }}>
                 <h2> {data.title} </h2>
                 <Divider />
                 <Paragraphs paragraphs={data.intro} />
 
-                <PortfolioSection content={ResumeContent.gitBrowser}/>
+                <PortfolioSection content={PortfolioContent.gitBrowser}/>
             </div>
         );
     }

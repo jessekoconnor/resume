@@ -6,21 +6,28 @@ const styles = {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        minHeight: '715px',
+        height: 'auto',
+
     },
     gridList: {
         display: 'flex',
         flexWrap: 'nowrap',
         overflowX: 'auto',
-        marginRight: '2px',
-        marginLeft: '2px',
+        width: 'auto',
+        height: 'auto',
+        div: {
+            height: 'auto',
+        }
     },
     gridTile: {
         display: 'flex',
         margin: '5px',
         height: 'auto',
+        width: 'auto',
     },
     img: {
+        width:'100%',
+        height:'100%',
     }
 };
 
@@ -44,13 +51,13 @@ const tilesData = [
  */
 const GridListExampleSingleLine = () => (
     <div style={styles.root}>
-        <GridList style={styles.gridList} cols={2.2}>
+        <GridList style={styles.gridList} cols={2.2} cellHeight='auto'>
             {tilesData.map((tile) => (
                 <GridTile
                     key={tile.img}
                     style={styles.gridTile}
                 >
-                    <img src={tile.img} style={styles.img}/>
+                    <img src={tile.img} style={styles.img} role="presentation"/>
                 </GridTile>
             ))}
         </GridList>
