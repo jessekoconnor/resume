@@ -18,7 +18,7 @@ class AppFrame extends React.Component {
 
         this.state = {
             drawerOpen: false,
-            selectedTab: this.props.tabs ? this.props.tabs[1] : null,
+            selectedTab: this.props.tabs ? this.props.tabs[0] : null,
         };
         logPageView(this.props.tabs[0].tabTitle);
     }
