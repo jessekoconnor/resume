@@ -4,7 +4,7 @@ import SiteBar from "./SiteBar";
 import SiteDrawer from "./SiteDrawer";
 import Title from 'react-title-component';
 
-var ReactGA = require('react-ga');
+let ReactGA = require('react-ga');
 ReactGA.initialize('UA-93732020-1');
 
 class AppFrame extends React.Component {
@@ -18,7 +18,7 @@ class AppFrame extends React.Component {
 
         this.state = {
             drawerOpen: false,
-            selectedTab: this.props.tabs ? this.props.tabs[0] : null,
+            selectedTab: this.props.tabs ? this.props.tabs[this.props.startingTab] : null,
         };
         logPageView(this.props.tabs[0].tabTitle);
     }
