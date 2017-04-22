@@ -20,11 +20,11 @@ class Dashboard extends React.Component {
     }
 
     WidgetContent() {
-        return fetch(`http://localhost:8081/scrape`)
+        return fetch(`http://localhost:8081/scrapePressRoom`)
             .then(function(result) {
                 result.json().then(function(data) {
                     console.log('recieved events: ', data);
-                    this.setState({widgetData: data.data});
+                    this.setState({widgetData: data});
                 }.bind(this));
             }.bind(this));
     }
@@ -34,14 +34,7 @@ class Dashboard extends React.Component {
             title: 'Dashboard',
             paragraphs: [
                 'This is where my morning dashboard is hosted. I use it every day to keep up to date on web accessible information that is important to me on a daily basis.',
-            ],
-            widgetMeta: {
-                name: 'PressRoom Widget',
-                header: {
-                    title: 'Press Room',
-                    subtitle: 'http://www.pressroomnh.com/calendar/'
-                }
-            }
+            ]
         };
 
         return (
@@ -51,7 +44,7 @@ class Dashboard extends React.Component {
                 <h2> {data.title} </h2>
                 <Divider />
                 <Paragraphs paragraphs={data.paragraphs} />
-                <Widget meta={data.widgetMeta} content={this.state.widgetData}/>
+                <Widget content={this.state.widgetData}/>
             </div>
         );
     }
