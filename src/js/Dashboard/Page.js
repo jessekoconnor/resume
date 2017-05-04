@@ -11,8 +11,10 @@ class Dashboard extends React.Component {
         this.WidgetContent = this.WidgetContent.bind(this);
 
         this.state = {
-            widgetData: []
-        }
+            widgetsData: []
+        };
+
+        this.widgetEndpoints = ['/scrapePressRoom'];
     }
 
     componentDidMount() {
@@ -20,13 +22,15 @@ class Dashboard extends React.Component {
     }
 
     WidgetContent() {
-        return fetch(`http://localhost:8081/scrapePressRoom`)
-            .then(function(result) {
-                result.json().then(function(data) {
-                    console.log('recieved events: ', data);
-                    this.setState({widgetData: data});
+        this.widgetEndpoints.forEach(function(endpoint) {
+            fetch('http://localhost:8081' + endpoint)
+                .then(function(result) {
+                    result.json().then(function(data) {
+                        console.log('recieved events: ', data);
+                        this.setState((prevState) => {widgetsData: prevState.widgetsData.push(data)});
+                    }.bind(this));
                 }.bind(this));
-            }.bind(this));
+        }.bind(this))
     }
 
     render() {
@@ -44,10 +48,20 @@ class Dashboard extends React.Component {
                 <h2> {data.title} </h2>
                 <Divider />
                 <Paragraphs paragraphs={data.paragraphs} />
-                <Widget content={this.state.widgetData}/>
+                <Widgets widgetData={this.state.widgetsData}/>
             </div>
         );
     }
+}
+
+// Returns an array of <Widget/>'s
+function Widgets(props) {
+    let items = [];
+    for (let i = 0; props.widgetData && i < props.widgetData.length; i++) {
+        let widget = props.widgetData[i];
+        items.push(<Widget data={widget} key={i}/>);
+    }
+    return items.length > 0 ? <div>{items}</div> : null;
 }
 
 // Returns an array of <p></p>'s
@@ -59,15 +73,5 @@ function Paragraphs(props) {
     }
     return items.length > 0 ? <div>{items}</div> : null;
 }
-
-// Returns an array of <Widget/>'s
-// function Widgets(props) {
-//     let items = [];
-//     for (let i = 0; props.widgets && i < props.widgets.length; i++) {
-//         let widget = props.widgets[i];
-//         items.push(<Widget meta={widget} key={i}/>);
-//     }
-//     return items.length > 0 ? <div>{items}</div> : null;
-// }
 
 module.exports = Dashboard;

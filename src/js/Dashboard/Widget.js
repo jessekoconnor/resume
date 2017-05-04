@@ -10,14 +10,18 @@ import ContentSend from 'material-ui/svg-icons/content/send';
 class Widget extends React.Component {
     render() {
 
+        this.title = this.props.data.config ? this.props.data.config.title : '';
+        this.subTitle = this.props.data.config ? this.props.data.config.url : '';
+        this.results = this.props.data.result ? this.props.data.result : [];
+
         return (
             <Card>
                 <CardHeader
-                    title={this.props.content.title}
-                    subtitle={this.props.content.url}
+                    title={this.title}
+                    subtitle={this.subTitle}
                 />
                 <CardText expandable={false}>
-                    <ContentLists content={this.props.content.data}/>
+                    <ContentLists content={this.results}/>
                 </CardText>
             </Card>
         );
@@ -39,7 +43,7 @@ function ContentItem(props) {
         let title = props.content.titles[i];
         items.push(<ListItem key={i} primaryText={title} leftIcon={<ContentSend/>} />);
     }
-    return items.length > 0 ? <List><Subheader>{props.content.date}</Subheader>{items}<Divider /></List> : null;
+    return items.length > 0 ? <List><Divider /><Subheader>{props.content.date}</Subheader>{items}</List> : null;
 }
 
 module.exports = Widget;
