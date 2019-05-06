@@ -42,6 +42,18 @@ function SubCards(props) {
     return <div>{items}</div>;
 }
 
+// Returns an array of subcards
+function SubCardTexts(props) {
+    let items = [];
+    for (let i = 0; i < props.cardTexts.length; i++) {
+        items.push(
+            <SubCardText cardText={props.cardTexts[i]} expandable={props.expandable || false}/>
+        );
+    }
+    return <div>{items}</div>;
+}
+// <SubCardText cardText={props.subCard.cardText} expandable={props.subCard.expander || false}/>
+
 // Returns a subcard for a resume section
 function SubCard(props) {
     return (
@@ -54,7 +66,7 @@ function SubCard(props) {
             />
 
 
-            <SubCardText cardText={props.subCard.cardText} expandable={props.subCard.expander || false}/>
+            <SubCardTexts cardTexts={props.subCard.cardText} expandable={true}/>
         </Card>
     );
 }
