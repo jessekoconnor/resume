@@ -19,9 +19,13 @@ class Resume extends React.Component {
                     paddingLeft: '15px'
                 }}> Living in Portsmouth New Hampshire, USA </p>
 
-                <ResumeSection content={ResumeContent.experience}/>
-                <ResumeSection content={ResumeContent.skills}/>
-                <ResumeSection content={ResumeContent.education}/>
+                <div style={{
+                    marginTop: '50px'
+                }}>
+                  <ResumeSection content={ResumeContent.experience}/>
+                  <ResumeSection content={ResumeContent.skills}/>
+                  <ResumeSection content={ResumeContent.education}/>
+                </div>
             </div>
         );
     }

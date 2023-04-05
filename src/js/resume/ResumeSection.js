@@ -6,8 +6,9 @@ class ResumeSection extends React.Component {
     render() {
         let styles = {
             resumeSection: {
-                margin: '10px auto 10px auto',
+                margin: '50px auto 10px auto',
                 border: '2px',
+                // add space after the card
             }
         };
 
@@ -22,11 +23,64 @@ class ResumeSection extends React.Component {
     }
 }
 
-// Returns an overlay with image and title
+// Returns an overlay with image and title with centering on the image
 function CardOverlay(props) {
+  let styles;
+    // style to center the image and limit the size
+    styles = {
+        cardOverlay: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '1000px',
+            width: '100%',
+            overflow: 'hidden',
+        },
+        cardOverlayImage: {
+            height: '100%',
+            width: 'auto',
+        },
+    };
+
+    // style to center on image top
+    if (props.overlay.imageTop) {
+      styles = {
+        cardOverlay: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            height: '1000px',
+            width: '100%',
+            overflow: 'hidden',
+        },
+        cardOverlayImage: {
+            height: '100%',
+            width: 'auto',
+        },
+      };
+    }
+
+    // style to center on image top
+    if (props.overlay.shortImage) {
+      styles = {
+        cardOverlay: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            height: '500px',
+            width: '100%',
+            overflow: 'hidden',
+        },
+        cardOverlayImage: {
+            height: '100%',
+            width: 'auto',
+        },
+      };
+    }
+
     return (
-        <CardMedia overlay={<CardTitle title={props.overlay.title}/>}>
-            <img src={props.overlay.imageURL} role="presentation"/>
+        <CardMedia overlay={<CardTitle title={props.overlay.title}/>} style={styles.cardOverlay}>
+            <img src={props.overlay.imageURL} role="presentation" style={styles.cardOverlayImage} />
         </CardMedia>
     );
 }

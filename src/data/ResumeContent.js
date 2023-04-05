@@ -2,7 +2,7 @@ module.exports = {
     experience: {
         overlay: {
             title: 'Experience',
-            imageURL: 'http://blog.aftercollege.com/wp-content/uploads/2015/12/software-engineering-internship-4-1024x682.jpg',
+            imageURL: 'https://drive.google.com/uc?export=view&id=1KMS7rGi-9uKK3efyfppBLnZAA0Ik3nKv',
         },
 
         subCards: [
@@ -59,6 +59,7 @@ module.exports = {
         overlay: {
             title: 'Education',
             imageURL: 'http://i.huffpost.com/gen/1774503/images/o-UNIVERSITY-OF-NEW-HAMPSHIRE-CAMPUS-facebook.jpg',
+            shortImage: true,
         },
 
         subCards: [
@@ -85,7 +86,8 @@ module.exports = {
     skills: {
         overlay: {
             title: 'Skilled in',
-            imageURL: 'http://cdn.fansided.com/wp-content/blogs.dir/386/files/2016/12/westworld-bicameral-mind-mainland.jpg',
+            imageURL: 'https://drive.google.com/uc?export=view&id=1zN4NAz0NoVZs5MTx5cRciwU0ZybrYpbV',
+            imageTop: true,
         },
 
         subCards: [
