@@ -9,7 +9,10 @@ import GridListSingleLine from './GridListSingleList';
 class PortfolioSection extends React.Component {
     render() {
         let styles = {
-            resumeSection: {},
+            resumeSection: {
+              // add space below section css
+              marginTop: '50px',
+            },
             cardOverlay: {},
             avatar: {cursor: "pointer"},
         };
@@ -26,7 +29,7 @@ class PortfolioSection extends React.Component {
                         style={styles.avatar}/>
                     }
                 />
-                <CardOverlay style={styles.cardOverlay} />
+                <CardOverlay style={styles.cardOverlay} overlay={this.props.content.overlay}/>
 
                 <SubCards subCards={this.props.content.subCards}/>
 
@@ -40,8 +43,60 @@ function avatarClick() {
 
 // Returns an overlay with image and title
 function CardOverlay(props) {
+  let styles = {
+    cardOverlay: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '1000px',
+        width: '100%',
+        overflow: 'hidden',
+    },
+    cardOverlayImage: {
+        height: '100%',
+        width: 'auto',
+    },
+};
+
+// style to center on image top
+if (props.overlay.imageTop) {
+  styles = {
+    cardOverlay: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        height: '1000px',
+        width: '100%',
+        overflow: 'hidden',
+    },
+    cardOverlayImage: {
+        height: '100%',
+        width: 'auto',
+    },
+  };
+}
+
+// style to center on image top
+if (props.overlay.shortImage) {
+  styles = {
+    cardOverlay: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        height: '500px',
+        width: '100%',
+        overflow: 'hidden',
+    },
+    cardOverlayImage: {
+        height: '100%',
+        width: 'auto',
+    },
+  };
+}
+
     return (
         <CardMedia >
+            <img src={props.overlay.imageURL1} role="presentation" style={styles.cardOverlayImage} />
             <GridListSingleLine />
         </CardMedia>
     );
