@@ -2,6 +2,10 @@ import React from 'react';
 import Divider from 'material-ui/Divider';
 import PortfolioSection from './PortfolioSection';
 
+import DashMobilePic1 from '../../../images/DashMobile/WebSurfer-snapshot.png';
+import DashMobilePic2 from '../../../images/DashMobile/WebSurfer-snapshot-2.png';
+import DashMobilePic3 from '../../../images/DashMobile/WebSurfer-snapshot-3.png';
+
 class Portfolio extends React.Component {
   render() {
 
@@ -18,12 +22,13 @@ class Portfolio extends React.Component {
         },
         overlay: {
           imageURL1: 'https://drive.google.com/uc?export=view&id=1jBCEviRtQGRB6iBtuAsR-k4QYhna9j0w',
+          images: [DashMobilePic1, DashMobilePic2, DashMobilePic3],
         },
 
         subCards: [
           {
             title: 'Dash Mobile',
-            subTitle: 'A mobile app && aws backed built to grab info from your favorite sites in a flash. No need to navigate to six different websites anymore to find the best show in town tonight',
+            subTitle: 'A mobile app && aws backend built to grab info from your favorite sites in a flash. No need to navigate to six different websites anymore to find the best show in town tonight',
           },
         ],
         expander: true,

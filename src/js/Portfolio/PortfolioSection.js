@@ -25,7 +25,7 @@ class PortfolioSection extends React.Component {
                     avatar={
                         <Avatar icon={
                             <img src={GitHub} alt="Logo" />
-                        } onTouchTap={avatarClick}
+                        } onTouchTap={() => avatarClick(this.props.content.header.avatarHref)}
                         style={styles.avatar}/>
                     }
                 />
@@ -37,8 +37,8 @@ class PortfolioSection extends React.Component {
     }
 }
 
-function avatarClick() {
-    window.location = "https://github.com/jessekoconnor/gitBrowser";
+function avatarClick(url) {
+    window.location = url;
 };
 
 // Returns an overlay with image and title
@@ -126,6 +126,7 @@ function SubCard(props) {
 
 
             <SubCardText cardText={props.subCard.cardText} expandable={props.subCard.expander || false}/>
+
         </Card>
     );
 }
