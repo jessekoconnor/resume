@@ -1,8 +1,12 @@
+import TallBrussels from '../../images/other/tall_pic.png';
+import UNH from '../../images/other/unh.jpg';
+import Hiking from '../../images/other/hiking.jpeg';
+
 module.exports = {
   experience: {
     overlay: {
       title: 'Experience',
-      imageURL: 'https://drive.google.com/uc?export=view&id=1KMS7rGi-9uKK3efyfppBLnZAA0Ik3nKv',
+      imageURL: TallBrussels,
     },
 
     subCards: [
@@ -84,7 +88,7 @@ module.exports = {
   education: {
     overlay: {
       title: 'Education',
-      imageURL: 'http://i.huffpost.com/gen/1774503/images/o-UNIVERSITY-OF-NEW-HAMPSHIRE-CAMPUS-facebook.jpg',
+      imageURL: UNH,
       shortImage: true,
     },
 
@@ -112,7 +116,7 @@ module.exports = {
   skills: {
     overlay: {
       title: 'Skilled in',
-      imageURL: 'https://drive.google.com/uc?export=view&id=1zN4NAz0NoVZs5MTx5cRciwU0ZybrYpbV',
+      imageURL: Hiking,
       imageTop: true,
     },
 
