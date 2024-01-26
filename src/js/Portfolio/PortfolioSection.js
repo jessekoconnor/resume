@@ -97,7 +97,7 @@ if (props.overlay.shortImage) {
     return (
         <CardMedia >
             <img src={props.overlay.imageURL1} role="presentation" style={styles.cardOverlayImage} />
-            <GridListSingleLine />
+            <GridListSingleLine images={props.overlay.images} />
         </CardMedia>
     );
 }

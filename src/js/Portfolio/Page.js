@@ -2,6 +2,7 @@ import React from 'react';
 import Divider from 'material-ui/Divider';
 import PortfolioSection from './PortfolioSection';
 
+import architecturePic from '../../../images/DashMobile/architecture.png';
 import DashMobilePic1 from '../../../images/DashMobile/WebSurfer-snapshot.png';
 import DashMobilePic2 from '../../../images/DashMobile/WebSurfer-snapshot-2.png';
 import DashMobilePic3 from '../../../images/DashMobile/WebSurfer-snapshot-3.png';
@@ -21,7 +22,7 @@ class Portfolio extends React.Component {
           avatarHref: 'https://github.com/jessekoconnor/server-side-slinger',
         },
         overlay: {
-          imageURL1: 'https://drive.google.com/uc?export=view&id=1jBCEviRtQGRB6iBtuAsR-k4QYhna9j0w',
+          imageURL1: architecturePic,
           images: [DashMobilePic1, DashMobilePic2, DashMobilePic3],
         },
 
@@ -40,9 +41,9 @@ class Portfolio extends React.Component {
           avatarHref: 'https://github.com/jessekoconnor/gitBrowser',
         },
         overlay: {
-          imageURL1: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Login.png',
-          imageURL2: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Feed.png',
-          imageURL3: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Search.png',
+          // imageURL1: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Login.png',
+          // imageURL2: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Feed.png',
+          // imageURL3: 'https://s3.amazonaws.com/githubprojects/gitBrowser/Search.png',
         },
 
         subCards: [
